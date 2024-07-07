@@ -4,6 +4,7 @@ set -euo pipefail
 
 GH_REPO="https://github.com/sst/ion"
 TOOL_NAME="sst"
+TOOL_DISPLAY_NAME="SST"
 TOOL_TEST="sst version"
 
 # Colors
@@ -48,7 +49,7 @@ download_release() {
 	filename="$2"
 	platform="$3"
 
-	echo -e "${ORANGE}Downloading $TOOL_NAME release $version...${NC}"
+	echo -e "${ORANGE}Downloading $TOOL_DISPLAY_NAME@$version...${NC}"
 	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
@@ -71,10 +72,10 @@ install_version() {
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
-		echo -e "${GREEN}$TOOL_NAME $version installation was successful!${NC}"
+		echo -e "${GREEN}Installed $TOOL_DISPLAY_NAME@v$version!${NC}"
 	) || (
 		rm -rf "$install_path"
-		fail "An error occurred while installing $TOOL_NAME $version."
+		fail "Error installing $TOOL_DISPLAY_NAME@v$version."
 	)
 }
 
