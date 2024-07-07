@@ -22,8 +22,6 @@
 Plugin:
 
 ```shell
-asdf plugin add sst
-# or
 asdf plugin add sst https://github.com/nurulhudaapon/asdf-sst.git
 ```
 
