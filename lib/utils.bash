@@ -40,9 +40,9 @@ download_release() {
 	local version filename url
 	version="$1"
 	filename="$2"
+	platform="$3"
 
-	# TODO: Adapt the release URL convention for sst
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
@@ -64,11 +64,40 @@ install_version() {
 		# TODO: Assert sst executable exists.
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
-		# test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
+		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
 		echo "$TOOL_NAME $version installation was successful!"
 	) || (
 		rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
 	)
+}
+
+get_platform() {
+	os=$(uname -s | tr '[:upper:]' '[:lower:]')
+	if [[ "$os" == "darwin" ]]; then
+		os="mac"
+	fi
+	arch=$(uname -m)
+
+	if [[ "$arch" == "aarch64" ]]; then 
+	arch="arm64"
+	fi
+
+	platform="$TOOL_NAME-$os-$arch"
+
+	case "$platform" in
+		*"-linux-"*)
+			[[ "$arch" == "x86_64" || "$arch" == "arm64" || "$arch" == "i386" ]] || exit 1
+		;;
+		*"-mac-"*)
+			[[ "$arch" == "x86_64" || "$arch" == "arm64" ]] || exit 1
+		;;
+		*)
+			echo "${RED}Unsupported OS/Arch: $os/$arch${NC}"
+			exit 1
+		;;
+	esac
+
+	echo "$platform"
 }
