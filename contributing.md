@@ -8,6 +8,12 @@ asdf plugin test <plugin-name> <plugin-url> [--asdf-tool-version <version>] [--a
 # TODO: adapt this
 asdf plugin test sst https://github.com/nurulhudaapon/asdf-sst.git "sst version"
 
+# Test canary
+asdf plugin test sst https://github.com/nurulhudaapon/asdf-sst.git --asdf-tool-version 0.0.489 --asdf-plugin-gitref canary "sst version"
+
+# Install canary
+asdf plugin update sst canary
+
 # Local Test Download
 ASDF_DOWNLOAD_PATH="./dist" ASDF_INSTALL_VERSION=0.0.489 bash bin/download
 
