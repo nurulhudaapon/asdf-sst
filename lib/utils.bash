@@ -2,13 +2,19 @@
 
 set -euo pipefail
 
-# TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for sst.
 GH_REPO="https://github.com/sst/ion"
 TOOL_NAME="sst"
 TOOL_TEST="sst version"
 
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+# YELLOW='\033[1;33m'
+ORANGE='\033[38;2;255;140;0m'
+NC='\033[0m' # No Color
+
 fail() {
-	echo -e "asdf-$TOOL_NAME: $*"
+	echo -e "${RED}asdf-$TOOL_NAME: $*${NC}"
 	exit 1
 }
 
@@ -42,9 +48,7 @@ download_release() {
 	filename="$2"
 	platform="$3"
 
-	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
-
-	echo "* Downloading $TOOL_NAME release $version..."
+	echo -e "${ORANGE}Downloading $TOOL_NAME release $version...${NC}"
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
@@ -66,7 +70,7 @@ install_version() {
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
 		test -x "$install_path/$tool_cmd" || fail "Expected $install_path/$tool_cmd to be executable."
 
-		echo "$TOOL_NAME $version installation was successful!"
+		echo -e "${GREEN}$TOOL_NAME $version installation was successful!${NC}"
 	) || (
 		rm -rf "$install_path"
 		fail "An error occurred while installing $TOOL_NAME $version."
@@ -80,22 +84,22 @@ get_platform() {
 	fi
 	arch=$(uname -m)
 
-	if [[ "$arch" == "aarch64" ]]; then 
-	arch="arm64"
+	if [[ "$arch" == "aarch64" ]]; then
+		arch="arm64"
 	fi
 
 	platform="$TOOL_NAME-$os-$arch"
 
 	case "$platform" in
-		*"-linux-"*)
-			[[ "$arch" == "x86_64" || "$arch" == "arm64" || "$arch" == "i386" ]] || exit 1
+	*"-linux-"*)
+		[[ "$arch" == "x86_64" || "$arch" == "arm64" || "$arch" == "i386" ]] || exit 1
 		;;
-		*"-mac-"*)
-			[[ "$arch" == "x86_64" || "$arch" == "arm64" ]] || exit 1
+	*"-mac-"*)
+		[[ "$arch" == "x86_64" || "$arch" == "arm64" ]] || exit 1
 		;;
-		*)
-			echo "${RED}Unsupported OS/Arch: $os/$arch${NC}"
-			exit 1
+	*)
+		echo -e "${RED}Unsupported OS/Arch: $os/$arch${NC}"
+		exit 1
 		;;
 	esac
 
