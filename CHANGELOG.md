@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/nurulhudaapon/asdf-sst/compare/v1.0.0...v1.0.1) (2024-07-07)
+
+
+### Bug Fixes
+
+* GoogleCloudPlatform/release-please-action from 3 to 4 ([#4](https://github.com/nurulhudaapon/asdf-sst/issues/4)) ([8dc4e7f](https://github.com/nurulhudaapon/asdf-sst/commit/8dc4e7f69e5d76dbef48dd1778ebf7aeabb5753e))
+
 ## 1.0.0 (2024-07-07)
 
 
