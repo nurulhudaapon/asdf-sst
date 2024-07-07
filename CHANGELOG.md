@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/nurulhudaapon/asdf-sst/compare/v1.0.1...v1.1.0) (2024-07-07)
+
+
+### Features
+
+* align tool name and message with sst ([ef49736](https://github.com/nurulhudaapon/asdf-sst/commit/ef49736377dc1e67339e7906c6c415bf5bd9f281))
+
 ## [1.0.1](https://github.com/nurulhudaapon/asdf-sst/compare/v1.0.0...v1.0.1) (2024-07-07)
 
 
