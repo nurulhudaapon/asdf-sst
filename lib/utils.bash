@@ -49,6 +49,7 @@ download_release() {
 	platform="$3"
 
 	echo -e "${ORANGE}Downloading $TOOL_NAME release $version...${NC}"
+	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
