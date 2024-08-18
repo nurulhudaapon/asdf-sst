@@ -19,7 +19,7 @@ fail() {
 	exit 1
 }
 
-curl_opts=(-fsSL)
+curl_opts=(-#fSL)
 
 # NOTE: You might want to remove this if sst is not hosted on GitHub releases.
 if [ -n "${GITHUB_API_TOKEN:-}" ]; then
@@ -51,6 +51,10 @@ download_release() {
 
 	echo -e "Downloading ${ORANGE}$TOOL_DISPLAY_NAME ${GREEN}version: ${YELLOW}$version ${GREEN}..."
 	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
+	# If version is 3+, use the new release URL without the 'v' prefix.
+	if [ "${version:0:1}" -ge 3 ]; then
+		url="$GH_REPO/releases/download/${version}/${platform}.tar.gz"
+	fi
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 

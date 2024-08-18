@@ -15,10 +15,10 @@ asdf plugin test sst https://github.com/nurulhudaapon/asdf-sst.git --asdf-tool-v
 asdf plugin update sst canary
 
 # Local Test Download
-ASDF_DOWNLOAD_PATH="./dist" ASDF_INSTALL_VERSION=0.0.489 bash bin/download
+ASDF_DOWNLOAD_PATH="./dist" ASDF_INSTALL_VERSION=3.0.42 bash bin/download
 
 # Local Test Install
-ASDF_DOWNLOAD_PATH="./dist" ASDF_INSTALL_VERSION=0.0.489 ASDF_INSTALL_PATH="./dist" ASDF_INSTALL_TYPE="version" bash bin/install
+ASDF_DOWNLOAD_PATH="./dist" ASDF_INSTALL_VERSION=3.0.42 ASDF_INSTALL_PATH="./dist" ASDF_INSTALL_TYPE="version" bash bin/install
 ```
 
 Tests are automatically run in GitHub Actions on push and PR.
