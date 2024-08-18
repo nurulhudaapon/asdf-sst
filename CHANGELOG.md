@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/nurulhudaapon/asdf-sst/compare/v1.1.0...v1.2.0) (2024-08-18)
+
+
+### Features
+
+* add support for sst v3 ([b212f0b](https://github.com/nurulhudaapon/asdf-sst/commit/b212f0b19acfe661a0769b93b443bdcb98b6b8fa))
+
 ## [1.1.0](https://github.com/nurulhudaapon/asdf-sst/compare/v1.0.1...v1.1.0) (2024-07-07)
 
 
