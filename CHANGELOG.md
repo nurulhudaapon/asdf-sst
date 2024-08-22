@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/nurulhudaapon/asdf-sst/compare/v1.2.0...v1.2.1) (2024-08-22)
+
+
+### Bug Fixes
+
+* revert removing v prefix for v3 ([cce1409](https://github.com/nurulhudaapon/asdf-sst/commit/cce14090637c033936220cae7c89a1e05bba39bd))
+
 ## [1.2.0](https://github.com/nurulhudaapon/asdf-sst/compare/v1.1.0...v1.2.0) (2024-08-18)
 
 
