@@ -2,7 +2,7 @@
 
 # asdf-sst [![Build](https://github.com/nurulhudaapon/asdf-sst/actions/workflows/build.yml/badge.svg)](https://github.com/nurulhudaapon/asdf-sst/actions/workflows/build.yml) [![Lint](https://github.com/nurulhudaapon/asdf-sst/actions/workflows/lint.yml/badge.svg)](https://github.com/nurulhudaapon/asdf-sst/actions/workflows/lint.yml)
 
-[sst](https://ion.sst.dev) plugin for the [asdf version manager](https://asdf-vm.com).
+[sst](https://sst.dev) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
 

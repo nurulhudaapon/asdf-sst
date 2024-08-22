@@ -4,7 +4,7 @@ set -euo pipefail
 
 GH_REPO="https://github.com/sst/ion"
 TOOL_NAME="sst"
-TOOL_DISPLAY_NAME="SST ❍ ion"
+TOOL_DISPLAY_NAME="SST"
 TOOL_TEST="sst version"
 
 # Colors
@@ -51,10 +51,6 @@ download_release() {
 
 	echo -e "Downloading ${ORANGE}$TOOL_DISPLAY_NAME ${GREEN}version: ${YELLOW}$version ${GREEN}..."
 	url="$GH_REPO/releases/download/v${version}/${platform}.tar.gz"
-	# If version is 3+, use the new release URL without the 'v' prefix.
-	if [ "${version:0:1}" -ge 3 ]; then
-		url="$GH_REPO/releases/download/${version}/${platform}.tar.gz"
-	fi
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
 }
 
