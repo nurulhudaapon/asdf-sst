@@ -22,7 +22,7 @@
 Plugin:
 
 ```shell
-asdf plugin add sst https://github.com/nurulhudaapon/asdf-sst.git
+asdf plugin add sst
 ```
 
 sst:
