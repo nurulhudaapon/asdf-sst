@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/sst/ion"
+GH_REPO="https://github.com/sst/sst"
 TOOL_NAME="sst"
 TOOL_DISPLAY_NAME="SST"
 TOOL_TEST="sst version"
