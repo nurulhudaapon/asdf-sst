@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/nurulhudaapon/asdf-sst/compare/v1.2.1...v1.2.2) (2024-10-28)
+
+
+### Bug Fixes
+
+* update gh_url to new sst/sst repo ([0b9b19a](https://github.com/nurulhudaapon/asdf-sst/commit/0b9b19a1e88a702d1e29d14bc15c60263ff1df98))
+
 ## [1.2.1](https://github.com/nurulhudaapon/asdf-sst/compare/v1.2.0...v1.2.1) (2024-08-22)
 
 
